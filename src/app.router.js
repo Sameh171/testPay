@@ -17,7 +17,7 @@ const initApp = (app , express)=>
     app.use ("/user",userRouter)
     app.post('/webhook', (req, res) => {
         const secretKey = "21ttarqN2b64a7tv.r8EOw{#"; // Replace with your actual secret key
-    
+        console.log(req);
         // APS sends the payload in the request body
         const payload = req.body;
         const signature = req.headers['aps-signature'];
