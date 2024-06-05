@@ -9,7 +9,8 @@ import cors from 'cors'
 
 const initApp = (app , express)=>
 {
-    app.use (express.json({}))
+    app.use(express.urlencoded({ extended: true }));
+
     app.use (cors())
     connect()
     app.get("/",(req,res)=>res.json({message : 'done'}))
