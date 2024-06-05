@@ -29,6 +29,8 @@ const initApp = (app , express)=>
             // Respond with a 200 status to acknowledge receipt of the event
             res.status(200).send('Event received');
         }else {
+               // Handle the event
+            console.log('Received event:', payload);
             return res.status(200).send('payment Failed');
         }
     
