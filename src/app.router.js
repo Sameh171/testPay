@@ -21,7 +21,8 @@ const initApp = (app , express)=>
         // APS sends the payload in the request body
         const payload = req.body;
         const signature = req.headers['aps-signature'];
-    
+        console.log(payload);
+        console.log(signature);
         // Create the signature from the payload and your secret key
         const hash = crypto.createHmac('sha256', secretKey)
                            .update(JSON.stringify(payload))
