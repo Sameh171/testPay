@@ -11,7 +11,11 @@ const initApp = (app , express)=>
 {
 
     app.use (cors())
+    // Middleware to parse URL-encoded bodies
     app.use(express.urlencoded({ extended: true }));
+
+    // Middleware to parse JSON bodies
+    app.use(express.json());
     app.post('/webhook', (req, res) => {
         // APS sends the payload in the request body
         console.log(req);
