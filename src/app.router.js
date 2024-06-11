@@ -9,13 +9,9 @@ import cors from 'cors'
 
 const initApp = (app , express)=>
 {
-    app.use(express.urlencoded({ extended: true }));
 
     app.use (cors())
-    connect()
-    app.get("/",(req,res)=>res.json({message : 'done'}))
-    app.use ("/auth",AuthRouter)
-    app.use ("/user",userRouter)
+    // app.use(express.urlencoded({ extended: true }));
     app.post('/webhook', (req, res) => {
         // APS sends the payload in the request body
         console.log(req);
@@ -38,6 +34,10 @@ const initApp = (app , express)=>
      //   }
     
     });
+    // connect()
+    app.get("/",(req,res)=>res.json({message : 'done'}))
+    app.use ("/auth",AuthRouter)
+    app.use ("/user",userRouter)
     app.use ( globalErrHandler)
     app.all ("*",(req,res,next)=>{return res.json({message:'in-valid Url'})})
 }
