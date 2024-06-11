@@ -11,7 +11,7 @@ const initApp = (app , express)=>
 {
 
     app.use (cors())
-    // app.use(express.urlencoded({ extended: true }));
+    app.use(express.urlencoded({ extended: true }));
     app.post('/webhook', (req, res) => {
         // APS sends the payload in the request body
         console.log(req);
