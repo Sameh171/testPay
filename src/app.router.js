@@ -19,21 +19,23 @@ const initApp = (app , express)=>
     app.post('/webhook', (req, res) => {
         // APS sends the payload in the request body
         console.log(req);
-        const payload = req.body;
-        const receivedSignature = payload.signature;
-        const secretKey = '21ttarqN2b64a7tv.r8EOw{#'; // Replace with your actual secret key
-        if (payload.response_message == 'Success') {
+        console.log(req.body);
+        res.status(200).send('Event received');
+      //  const payload = req.body;
+       // const receivedSignature = payload.signature;
+     //   const secretKey = '21ttarqN2b64a7tv.r8EOw{#'; // Replace with your actual secret key
+       // if (payload.response_message == 'Success') {
 
             // Handle the event
-            console.log('Received event:', payload);
+          //  console.log('Received event:', payload);
         
             // Respond with a 200 status to acknowledge receipt of the event
-            res.status(200).send('Event received');
-        }else {
+           // res.status(200).send('Event received');
+   //     }else {
                // Handle the event
-            console.log('Received event:', payload);
-            return res.status(200).send('payment Failed');
-        }
+         //   console.log('Received event:', payload);
+        //    return res.status(200).send('payment Failed');
+     //   }
     
     });
     app.use ( globalErrHandler)
